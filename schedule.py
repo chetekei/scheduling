@@ -29,7 +29,7 @@ if search_policy:
     # Format 'Date Scheduled' column to display full month name
     policy_results['Date Scheduled'] = pd.to_datetime(policy_results['Date Scheduled']).dt.strftime('%B %d, %Y')
 
-    st.table(policy_results[['Insured ', 'Policy Number', 'Claim Type', 'Maturity Year', 'Date Scheduled', 'Claim Amount', 'Installment']])
+    st.table(policy_results[['Insured ', 'Policy Number', 'Claim Type', 'Date Scheduled', 'Claim Amount', 'Installment']])
 
 if search_name:
     name_results = df[df['Insured '].str.contains(search_name, case=False)]
@@ -40,4 +40,4 @@ if search_name:
     name_results['Date Scheduled'] = pd.to_datetime(name_results['Date Scheduled']).dt.strftime('%B %d, %Y')
 
     
-    st.table(name_results[['Insured ', 'Policy Number', 'Claim Type', 'Maturity Year', 'Date Scheduled', 'Claim Amount', 'Installment']])
+    st.table(name_results[['Insured ', 'Policy Number', 'Claim Type', 'Date Scheduled', 'Claim Amount', 'Installment']])
