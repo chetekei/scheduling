@@ -26,6 +26,6 @@ if search_policy:
     st.write(policy_results)
 
 if search_name:
-    name_results = df[df['Insured'].str.contains(search_name, case=False)]
+    name_results = df[df['Insured '].str.contains(search_name, case=False)]
     
     st.write(name_results)
