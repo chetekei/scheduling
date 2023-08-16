@@ -29,6 +29,9 @@ if search_policy:
     # Format 'Date Scheduled' column to display full month name
     policy_results['Date Scheduled'] = pd.to_datetime(policy_results['Date Scheduled']).dt.strftime('%B %d, %Y')
 
+      # Remove decimal places from 'Claim Amount'
+    policy_results['Claim Amount'] = policy_results['Claim Amount'].astype(int)
+
     st.table(policy_results[['Insured ', 'Policy Number', 'Claim Type', 'Date Scheduled', 'Claim Amount', 'Installment']])
 
 if search_name:
@@ -38,6 +41,9 @@ if search_name:
     name_results['Installment'] = name_results['Installment'].fillna(name_results['Claim Amount'])
     # Format 'Date Scheduled' column to display full month name
     name_results['Date Scheduled'] = pd.to_datetime(name_results['Date Scheduled']).dt.strftime('%B %d, %Y')
+
+    # Remove decimal places from 'Claim Amount'
+    name_results['Claim Amount'] = name_results['Claim Amount'].astype(int)
 
     
     st.table(name_results[['Insured ', 'Policy Number', 'Claim Type', 'Date Scheduled', 'Claim Amount', 'Installment']])
