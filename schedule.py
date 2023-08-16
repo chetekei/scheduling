@@ -5,7 +5,7 @@ import pandas as pd
 st.set_option('deprecation.showfileUploaderEncoding', False)
 
 # title of the app
-st.title("Life Claims Schedule ")
+st.title("Life Claims Payment Schedule ")
 
 # Add a sidebar
 st.sidebar.image('corplogo.PNG', use_column_width=True)
