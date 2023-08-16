@@ -19,6 +19,10 @@ df = pd.read_csv(csv_file_path)
 search_policy = st.sidebar.text_input("Search by Policy Number", "")
 search_name = st.sidebar.text_input("Search by Client Name", "")
 
+# Custom function to format numbers with commas and no decimal places
+def format_number(number):
+    return '{:,.0f}'.format(number)
+
 # Filtering based on user input
 if search_policy:
     policy_results = df[df['Policy Number'].str.contains(search_policy, case=False)]
@@ -29,8 +33,10 @@ if search_policy:
     # Format 'Date Scheduled' column to display full month name
     policy_results['Date Scheduled'] = pd.to_datetime(policy_results['Date Scheduled']).dt.strftime('%B %d, %Y')
 
-      # Remove decimal places from 'Claim Amount'
-    policy_results['Claim Amount'] = policy_results['Claim Amount'].astype(int)
+    # Format 'Claim Amount' and 'Installment' columns with commas and no decimal places
+    policy_results['Claim Amount'] = policy_results['Claim Amount'].apply(format_number)
+    policy_results['Installment'] = policy_results['Installment'].apply(format_number)
+
 
     st.table(policy_results[['Insured ', 'Policy Number', 'Claim Type', 'Date Scheduled', 'Claim Amount', 'Installment']])
 
@@ -42,8 +48,8 @@ if search_name:
     # Format 'Date Scheduled' column to display full month name
     name_results['Date Scheduled'] = pd.to_datetime(name_results['Date Scheduled']).dt.strftime('%B %d, %Y')
 
-    # Remove decimal places from 'Claim Amount'
-    name_results['Claim Amount'] = name_results['Claim Amount'].astype(int)
-
+    # Format 'Claim Amount' and 'Installment' columns with commas and no decimal places
+    name_results['Claim Amount'] = name_results['Claim Amount'].apply(format_number)
+    name_results['Installment'] = name_results['Installment'].apply(format_number)
     
     st.table(name_results[['Insured ', 'Policy Number', 'Claim Type', 'Date Scheduled', 'Claim Amount', 'Installment']])
