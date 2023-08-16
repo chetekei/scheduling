@@ -21,7 +21,10 @@ search_name = st.sidebar.text_input("Search by Client Name", "")
 
 # Custom function to format numbers with commas and no decimal places
 def format_number(number):
-    return '{:,.0f}'.format(number)
+    if pd.notna(number) and isinstance(number, (int, float)):
+        return '{:,.0f}'.format(number)
+    else:
+        return 'Data Not Available'
 
 
 # Filtering based on user input
