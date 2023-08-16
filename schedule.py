@@ -23,9 +23,9 @@ search_name = st.sidebar.text_input("Search by Client Name", "")
 if search_policy:
     policy_results = df[df['Policy Number'].str.contains(search_policy, case=False)]
     
-    st.write(policy_results)
+    st.table(policy_results[['ClaimType', 'MaturityYear', 'DateScheduled', 'ClaimAmount', 'Installment']])
 
 if search_name:
     name_results = df[df['Insured '].str.contains(search_name, case=False)]
     
-    st.write(name_results)
+    st.table(name_results[['ClaimType', 'MaturityYear', 'DateScheduled', 'ClaimAmount', 'Installment']])
