@@ -68,7 +68,7 @@ if search_name:
        # Style the table
         styled_results = name_results[['Insured ', 'Policy Number', 'Claim Type', 'Date Scheduled', 'Claim Amount', 'Installment']].style\
             .set_table_styles([{'selector': 'th',
-                                'props': [('background-color', '#FF55A3'),
+                                'props': [('background-color', '#ec3b83'),
                                           ('font-weight', 'bold')]}])
 
         st.table(styled_results)
