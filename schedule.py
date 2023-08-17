@@ -62,5 +62,15 @@ if search_name:
         # Format 'Date Scheduled' column to display full month name
         name_results['Date Scheduled'] = pd.to_datetime(name_results['Date Scheduled']).dt.strftime('%B %d, %Y')
 
-        st.table(name_results[['Insured ', 'Policy Number', 'Claim Type','Date Scheduled', 'Claim Amount', 'Installment']])
+        # Apply styling to the table
+        styled_results = name_results[['Insured ', 'Policy Number', 'Claim Type', 'Date Scheduled', 'Claim Amount', 'Installment']].style\
+            .set_properties(subset=['Insured ', 'Policy Number', 'Claim Type', 'Date Scheduled', 'Claim Amount', 'Installment'],
+                            **{'background-color': 'lightpink'})\
+            .set_table_styles([{'selector': 'thead th',
+                                'props': [('background-color', 'lightpink')]}])
+
+        st.table(styled_results)
+
+
+        #st.table(name_results[['Insured ', 'Policy Number', 'Claim Type','Date Scheduled', 'Claim Amount', 'Installment']])
 
