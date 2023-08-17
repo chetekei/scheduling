@@ -65,10 +65,13 @@ if search_name:
          # Reset the index and remove the default index column
         name_results.reset_index(drop=True, inplace=True)
 
+       # Style the table
+        styled_results = name_results[['Insured ', 'Policy Number', 'Claim Type', 'Date Scheduled', 'Claim Amount', 'Installment']].style\
+            .set_table_styles([{'selector': 'th',
+                                'props': [('background-color', 'brilliantrose'),
+                                          ('font-weight', 'bold')]}])
 
-        st.table(name_results[['Insured ', 'Policy Number', 'Claim Type', 'Date Scheduled', 'Claim Amount', 'Installment']].style
-                .set_table_styles([{'selector': 'th',
-                                    'props': [('background-color', 'lightpink')]}]))
+        st.table(styled_results)
 
 
         
