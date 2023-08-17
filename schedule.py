@@ -24,7 +24,7 @@ def format_number(number):
     if pd.notna(number) and isinstance(number, (int, float)):
         return '{:,.0f}'.format(number)
     else:
-        return 'Liase with Finance'
+        return 'Laiase with Finance'
 
 
 # Filtering based on user input
