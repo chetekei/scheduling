@@ -46,7 +46,7 @@ if search_policy:
 
         styled_results = policy_results[['Insured ', 'Policy Number', 'Claim Type', 'Date Scheduled', 'Claim Amount', 'Installment']].style\
             .set_table_styles([{'selector': 'th',
-                                'props': [('background-color', '#f77fbe'),
+                                'props': [('background-color', '#ffa6c9'),
                                           ('font-weight', 'bold')]}])
 
         st.table(styled_results)
@@ -73,7 +73,7 @@ if search_name:
        # Style the table
         styled_results = name_results[['Insured ', 'Policy Number', 'Claim Type', 'Date Scheduled', 'Claim Amount', 'Installment']].style\
             .set_table_styles([{'selector': 'th',
-                                'props': [('background-color', '#f77fbe'),
+                                'props': [('background-color', '#ffa6c9'),
                                           ('font-weight', 'bold')]}])
 
         st.table(styled_results)
