@@ -49,6 +49,8 @@ if search_policy:
                                 'props': [('background-color', '#ec3b83'),
                                           ('font-weight', 'bold')]}])
 
+        st.table(styled_results)
+
 if search_name:
     name_results = df[df['Insured '].str.contains(search_name, case=False)]
 
