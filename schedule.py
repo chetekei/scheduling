@@ -83,6 +83,9 @@ if search_name:
         
         #st.table(name_results[['Insured ', 'Policy Number', 'Claim Type','Date Scheduled', 'Claim Amount', 'Installment']])
 
+# Convert the 'Date Scheduled' column to datetime
+df['Date Scheduled'] = pd.to_datetime(df['Date Scheduled'])
+
 
 # Get the start and end dates of the current week
 today = datetime.datetime.today()
