@@ -86,31 +86,26 @@ if search_name:
 # Convert the 'Date Scheduled' column to datetime
 df['Date Scheduled'] = pd.to_datetime(df['Date Scheduled'])
 
+# ...
 
-# Get the start and end dates of the current week
+# Get the start date of the current week (Monday)
 today = datetime.datetime.today()
 start_of_week = today - datetime.timedelta(days=today.weekday())
-end_of_week = start_of_week + datetime.timedelta(days=6)
 
-# Filter the DataFrame for policies rescheduled in the current week
-rescheduled_this_week = df[
-    (df['Date Scheduled'] >= start_of_week) & (df['Date Scheduled'] <= end_of_week)
-]
+# Calculate the date for Monday of the current week
+monday_of_week = start_of_week + datetime.timedelta(days=0)  # Monday is the first day (0 index)
+
+# Filter the DataFrame for policies rescheduled to be paid on Monday of the current week
+policies_scheduled_on_monday = df[df['Date Scheduled'].dt.date == monday_of_week.date()]
 
 # Save the filtered DataFrame to a CSV file
-rescheduled_this_week.to_csv('rescheduled_this_week.csv', index=False)
+policies_scheduled_on_monday.to_csv('policies_scheduled_on_monday.csv', index=False)
 
+# ...
 
-# Add a section for downloading rescheduled policies in the current week
-st.sidebar.markdown("### Download Rescheduled Policies in Current Week")
+# Add a section for downloading policies scheduled to be paid on Monday
+st.sidebar.markdown("### Download Policies Scheduled on Monday")
 if st.sidebar.button("Download CSV"):
     # Create a link to download the CSV file
-    with open('rescheduled_this_week.csv', 'rb') as f:
-        st.sidebar.download_button("Download Rescheduled Policies CSV", f.read(), file_name='rescheduled_this_week.csv')
-
-
-
-
-
-
-
+    with open('policies_scheduled_on_monday.csv', 'rb') as f:
+        st.sidebar.download_button("Download Policies Scheduled on Monday CSV", f.read(), file_name='policies_scheduled_on_monday.csv')
