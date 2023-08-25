@@ -12,7 +12,7 @@ st.sidebar.image('corplogo.PNG', use_column_width=True)
 st.sidebar.subheader("Search Clients Details")
 
 # Load the CSV file
-csv_file_path = 'schedule_data.csv'  
+csv_file_path = 'scheduled_data.csv'  
 df = pd.read_csv(csv_file_path)
 
 # Sidebar input boxes
@@ -81,4 +81,32 @@ if search_name:
 
         
         #st.table(name_results[['Insured ', 'Policy Number', 'Claim Type','Date Scheduled', 'Claim Amount', 'Installment']])
+
+
+# Get the start and end dates of the current week
+today = datetime.datetime.today()
+start_of_week = today - datetime.timedelta(days=today.weekday())
+end_of_week = start_of_week + datetime.timedelta(days=6)
+
+# Filter the DataFrame for policies rescheduled in the current week
+rescheduled_this_week = df[
+    (df['Date Scheduled'] >= start_of_week) & (df['Date Scheduled'] <= end_of_week)
+]
+
+# Save the filtered DataFrame to a CSV file
+rescheduled_this_week.to_csv('rescheduled_this_week.csv', index=False)
+
+
+# Add a section for downloading rescheduled policies in the current week
+st.sidebar.markdown("### Download Rescheduled Policies in Current Week")
+if st.sidebar.button("Download CSV"):
+    # Create a link to download the CSV file
+    with open('rescheduled_this_week.csv', 'rb') as f:
+        st.sidebar.download_button("Download Rescheduled Policies CSV", f.read(), file_name='rescheduled_this_week.csv')
+
+
+
+
+
+
 
