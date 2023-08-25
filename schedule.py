@@ -86,8 +86,6 @@ if search_name:
 # Convert the 'Date Scheduled' column to datetime
 df['Date Scheduled'] = pd.to_datetime(df['Date Scheduled'])
 
-# ...
-
 # Get the start date of the current week (Monday)
 today = datetime.datetime.today()
 start_of_week = today - datetime.timedelta(days=today.weekday())
@@ -95,8 +93,11 @@ start_of_week = today - datetime.timedelta(days=today.weekday())
 # Calculate the date for Monday of the current week
 monday_of_week = start_of_week + datetime.timedelta(days=0)  # Monday is the first day (0 index)
 
+# Convert 'Date Scheduled' column to dates only
+df['Date Scheduled'] = pd.to_datetime(df['Date Scheduled']).dt.date
+
 # Filter the DataFrame for policies rescheduled to be paid on Monday of the current week
-policies_scheduled_on_monday = df[df['Date Scheduled'].dt.date == monday_of_week.date()]
+policies_scheduled_on_monday = df[df['Date Scheduled'] == monday_of_week.date()]
 
 # Save the filtered DataFrame to a CSV file
 policies_scheduled_on_monday.to_csv('policies_scheduled_on_monday.csv', index=False)
