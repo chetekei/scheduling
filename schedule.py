@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import datetime
+import base64
 
 # configuration
 st.set_option('deprecation.showfileUploaderEncoding', False)
@@ -82,9 +83,19 @@ if search_name:
 # Add a section to download policies scheduled for the respective week in the sidebar
 st.sidebar.markdown("---")
 
+def get_download_link(data_frame):
+    csv = data_frame.to_csv(index=False)
+    b64 = base64.b64encode(csv.encode()).decode()
+    href = f'<a href="data:file/csv;base64,{b64}" download="policies_this_week.csv">Click here to download the CSV file</a>'
+    return href
+
+# ... (filtering and formatting code)
+
+# Add a section to download policies scheduled for the respective week in the sidebar
+st.sidebar.markdown("---")
+
 if st.sidebar.button("Download Scheduled Policies for This Week"):
     # Assuming your 'Date Scheduled' column contains the date information
-    # Get the current week's start and end dates
     current_date = datetime.datetime.now()
     start_of_week = current_date - datetime.timedelta(days=current_date.weekday())
     end_of_week = start_of_week + datetime.timedelta(days=6)
