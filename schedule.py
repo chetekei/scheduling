@@ -102,5 +102,8 @@ if st.sidebar.button("Download Scheduled Policies for This Week"):
     
     policies_this_week = df[(pd.to_datetime(df['Date Scheduled']).dt.date >= start_of_week.date()) & (pd.to_datetime(df['Date Scheduled']).dt.date <= end_of_week.date())]
     
+   columns_to_include = ['Claim Type', 'Insured', 'Policy Number', 'Sum Assured', 'Claim Amount', 'Date Scheduled']
+    policies_selected_columns = policies_this_week[columns_to_include]
+    
     # Provide the download link in the sidebar
-    st.sidebar.markdown(get_download_link(policies_this_week), unsafe_allow_html=True)
+    st.sidebar.markdown(get_download_link(policies_selected_columns), unsafe_allow_html=True)
