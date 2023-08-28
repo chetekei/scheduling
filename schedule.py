@@ -108,7 +108,7 @@ if st.sidebar.button("Scheduled Payments for This Week"):
 
     st.subheader("Payments Scheduled for This Week")
     formatted_total_claim_amount = '{:,.0f}'.format(total_claim_amount)
-    st.write(f"Total Scheduled Claim Amount this Week: {formatted_total_claim_amount}")
+    st.write(f" **Total Scheduled Claim Amount this Week:** {formatted_total_claim_amount}")
     
     st.dataframe(policies_selected_columns)
 
