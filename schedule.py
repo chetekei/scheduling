@@ -91,7 +91,7 @@ def get_download_link(data_frame):
 
 # ... (filtering and formatting code)
 
-if st.sidebar.button("Download Scheduled Policies for This Week"):
+if st.sidebar.button("Scheduled Payments for This Week"):
     # Assuming your 'Date Scheduled' column contains the date information
     current_date = datetime.datetime.now()
     start_of_week = current_date - datetime.timedelta(days=current_date.weekday())
