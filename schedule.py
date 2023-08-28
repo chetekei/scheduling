@@ -79,9 +79,10 @@ if search_name:
 
         st.table(styled_results)
 
-# Add a section to download policies scheduled for the respective week
-st.markdown("---")
-if st.button("Download Scheduled Policies for This Week"):
+# Add a section to download policies scheduled for the respective week in the sidebar
+st.sidebar.markdown("---")
+
+if st.sidebar.button("Download Scheduled Policies for This Week"):
     # Assuming your 'Date Scheduled' column contains the date information
     # Get the current week's start and end dates
     current_date = datetime.datetime.now()
@@ -94,10 +95,5 @@ if st.button("Download Scheduled Policies for This Week"):
     # Save the filtered DataFrame to a CSV file
     policies_this_week.to_csv('policies_this_week.csv', index=False)
     
-    # Provide the download link
-    st.markdown("[Download Scheduled Policies for This Week](policies_this_week.csv)")
-
-
-        
-        #st.table(name_results[['Insured ', 'Policy Number', 'Claim Type','Date Scheduled', 'Claim Amount', 'Installment']])
-
+    # Provide the download link in the sidebar
+    st.sidebar.markdown("[Download Scheduled Policies for This Week](policies_this_week.csv)")
