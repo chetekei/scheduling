@@ -91,9 +91,6 @@ def get_download_link(data_frame):
 
 # ... (filtering and formatting code)
 
-# Add a section to download policies scheduled for the respective week in the sidebar
-st.sidebar.markdown("---")
-
 if st.sidebar.button("Download Scheduled Policies for This Week"):
     # Assuming your 'Date Scheduled' column contains the date information
     current_date = datetime.datetime.now()
