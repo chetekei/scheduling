@@ -99,9 +99,9 @@ if st.sidebar.button("Scheduled Payments for This Week"):
     start_of_week = current_date - datetime.timedelta(days=current_date.weekday())
     end_of_week = start_of_week + datetime.timedelta(days=6)
     
-    policies_this_week = df[(pd.to_datetime(df['Date Scheduled']).dt.date >= start_of_week.date()) & (pd.to_datetime(df['Date Scheduled']).dt.date <= end_of_week.date())]
+    policies_this_week = df[(pd.to_datetime(df['Re - scheduled Date']).dt.date >= start_of_week.date()) & (pd.to_datetime(df['Re - scheduled Date']).dt.date <= end_of_week.date())]
     
-    columns_to_include = ['Claim Type', 'Insured ', 'Policy Number', 'Sum Assured', 'Claim Amount', 'Date Scheduled']
+    columns_to_include = ['Claim Type', 'Insured ', 'Policy Number', 'Sum Assured', 'Claim Amount', 'Re - scheduled Date']
     policies_selected_columns = policies_this_week[columns_to_include]
 
     # Calculate the total Claim Amount
