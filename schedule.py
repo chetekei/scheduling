@@ -44,8 +44,8 @@ if search_policy:
         policy_results['Installment'] = policy_results['Installment'].apply(format_number)
 
         # Format 'Date Scheduled' column to display full month name
-        policy_results['Date Scheduled'] = pd.to_datetime(policy_results['Date Scheduled']).dt.strftime('%B %d, %Y')
-        policy_results['Re - scheduled Date'] = pd.to_datetime(policy_results['Re - scheduled Date']).dt.strftime('%B %d, %Y')
+        policy_results['Date Scheduled'] = pd.to_datetime(policy_results['Date Scheduled']).str.strip()).dt.strftime('%B %d, %Y')
+        policy_results['Re - scheduled Date'] = pd.to_datetime(policy_results['Re - scheduled Date']).str.strip()).dt.strftime('%B %d, %Y')
 
         styled_results = policy_results[['Insured ', 'Policy Number', 'Claim Type', 'Date Scheduled', 'Re - scheduled Date', 'Claim Amount', 'Installment']].style\
             .set_table_styles([{'selector': 'th',
@@ -65,9 +65,9 @@ if search_name:
         name_results['Claim Amount'] = name_results['Claim Amount'].apply(format_number)
         name_results['Installment'] = name_results['Installment'].apply(format_number)
 
-        # Format 'Date Scheduled' column to display full month name
-        name_results['Date Scheduled'] = pd.to_datetime(name_results['Date Scheduled']).dt.strftime('%B %d, %Y')
-        name_results['Re - scheduled Date'] = pd.to_datetime(name_results['Re - scheduled Date']).dt.strftime('%B %d, %Y')
+        
+        name_results['Date Scheduled'] = pd.to_datetime(name_results['Date Scheduled']).str.strip()).dt.strftime('%B %d, %Y')
+        name_results['Re - scheduled Date'] = pd.to_datetime(name_results['Re - scheduled Date']).str.strip()).dt.strftime('%B %d, %Y')
 
          # Reset the index and remove the default index column
         name_results.reset_index(drop=True, inplace=True)
