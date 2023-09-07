@@ -60,9 +60,7 @@ if search_name:
     if name_results.empty:
         st.write("Data Not Available")
     else:
-        # Replace NaN values in 'Installment' with corresponding 'Claim Amount'
-        name_results['Installment'] = name_results['Installment'].fillna(name_results['Claim Amount'])
-
+        
         # Format 'Claim Amount' and 'Installment' columns with commas and no decimal places
         name_results['Claim Amount'] = name_results['Claim Amount'].apply(format_number)
         name_results['Installment'] = name_results['Installment'].apply(format_number)
