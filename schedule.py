@@ -14,7 +14,7 @@ st.sidebar.image('corplogo.PNG', use_column_width=True)
 st.sidebar.subheader("Search Clients Details")
 
 # Load the CSV file
-csv_file_path = 'lastschedule.csv'  
+csv_file_path = 'lastshedule.csv'  
 df = pd.read_csv(csv_file_path)
 
 # Sidebar input boxes
