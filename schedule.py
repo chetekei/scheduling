@@ -47,7 +47,7 @@ if search_policy:
         policy_results['Date Scheduled'] = pd.to_datetime(policy_results['Date Scheduled']).dt.strftime('%B %d, %Y')
         policy_results['Re - scheduled Date'] = pd.to_datetime(policy_results['Re - scheduled Date']).dt.strftime('%B %d, %Y')
 
-        styled_results = policy_results[['Insured ', 'Policy Number', 'Claim Type', ' Date Scheduled', 'Re - scheduled Date', 'Claim Amount', 'Payment']].style\
+        styled_results = policy_results[['Insured ', 'Policy Number', 'Claim Type', 'Date Scheduled', 'Re - scheduled Date', 'Claim Amount', 'Payment']].style\
             .set_table_styles([{'selector': 'th',
                                 'props': [('background-color', '#f19cbb'),
                                           ('font-weight', 'bold')]}])
@@ -73,7 +73,7 @@ if search_name:
         name_results.reset_index(drop=True, inplace=True)
 
        # Style the table
-        styled_results = name_results[['Insured ', 'Policy Number', 'Claim Type', ' Date Scheduled', 'Re - scheduled Date', 'Claim Amount', 'Payment']].style\
+        styled_results = name_results[['Insured ', 'Policy Number', 'Claim Type', 'Date Scheduled', 'Re - scheduled Date', 'Claim Amount', 'Payment']].style\
             .set_table_styles([{'selector': 'th',
                                 'props': [('background-color', '#f19cbb'),
                                           ('font-weight', 'bold')]}])
