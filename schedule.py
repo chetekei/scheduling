@@ -30,6 +30,9 @@ def format_number(number):
 
 
 # Filtering based on user input
+# Convert 'Policy Number' column to string
+df['Policy Number'] = df['Policy Number'].astype(str)
+
 if search_policy:
     policy_results = df[df['Policy Number'].str.contains(search_policy, case=False)]
 
