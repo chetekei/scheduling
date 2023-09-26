@@ -14,7 +14,7 @@ st.sidebar.image('corplogo.PNG', use_column_width=True)
 st.sidebar.subheader("Search Clients Details")  # User input for plan selection
 
  # Create a sidebar to switch between views
-view = st.sidebar.radio("View", ["Calculate Surrender", "Scheduling"])
+view = st.sidebar.radio("View", ["Scheduling", "Calculate Surrender"])
 
 if view == "Calculate Surrender":
 
