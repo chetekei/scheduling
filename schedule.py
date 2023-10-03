@@ -93,7 +93,7 @@ elif view == "Scheduling":
             # Replace NaN values in 'Installment' with corresponding 'Claim Amount'
             policy_results['Installment'] = policy_results['Installment'].fillna(policy_results['Claim Amount'])
 
-            # Format 'Claim Amount' and 'Installment' columns with commas and no decimal places
+            # Format Claim Amount and Installment columns with commas and no decimal places
             policy_results['Claim Amount'] = policy_results['Claim Amount'].apply(format_number)
             policy_results['Installment'] = policy_results['Installment'].apply(format_number)
 
