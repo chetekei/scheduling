@@ -18,14 +18,16 @@ view = st.sidebar.radio("View", ["Scheduling", "Calculate Surrender"])
 
 if view == "Calculate Surrender":
 
-    plan_selection = st.sidebar.text_input("Enter Plan Code (04, 05, 06, or 07): ")
+    plan_selection = st.sidebar.text_input("Enter Plan Code (04, 05, 06, or 07 or 10 or 20): ")
 
     # Create a mapping of plan selection to CSV file
     plan_to_csv_mapping = {
         "04": "plan04.csv",
         "05": "plan05.csv",
         "06": "plan06.csv",
-        "07": "plan07.csv"
+        "07": "plan07.csv",
+        "10": "plan20.csv",
+        "20": "plan20.csv"
     }
 
     if plan_selection:
