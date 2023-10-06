@@ -17,8 +17,7 @@ st.sidebar.subheader("Search Clients Details")  # User input for plan selection
 view = st.sidebar.radio("View", ["Scheduling", "Calculate Surrender"])
 
 if view == "Calculate Surrender":
-
-    plan_selection = st.sidebar.text_input("Enter Plan Code (04, 05, 06, 07, 10 or 20): ")
+    plan_selection = st.sidebar.text_input("Enter Plan Code (04, 05, 06, 07, 10, or 20): ")
 
     # Create a mapping of plan selection to CSV file
     plan_to_csv_mapping = {
@@ -41,35 +40,19 @@ if view == "Calculate Surrender":
             policy_term = int(st.number_input("Enter the Policy Term"))
             sum_assured = int(st.number_input("Enter the Sum Assured:"))
 
-           # "Calculate" button
-           if st.button("Calculate"):
-           
-               # Function to retrieve the adjusted value at the intersection of a selected column and TERM
-               def get_adjusted_value(data_frame, units_paid, policy_term, sum_assured):
-                   try:
-                       row_index = data_frame[data_frame['TERM'] == policy_term].index[0]
-                       column_name = str(units_paid)  # Convert units_paid to string for column name
-                       value = data_frame.at[row_index, column_name]  # Access the cell using .at method
- 
-                       adjusted_value = (value / 1000) * sum_assured
-                       return adjusted_value
-                   except (KeyError, IndexError):
-                       return "Invalid column name or TERM value."
-                    
-           
+            # "Calculate" button
+            if st.button("Calculate"):
+                # Call the function to calculate the adjusted value
+                adjusted_value, value = get_adjusted_value(df, units_paid, policy_term, sum_assured)
 
-               # Calculate the adjusted value if all user inputs are provided
-                if units_paid and policy_term and sum_assured:
-                    adjusted_value = get_adjusted_value(df, units_paid, policy_term, sum_assured)
-                    if isinstance(adjusted_value, (int, float)):
-                        calculation_str = f"{value} / 1000 * {sum_assured}"
-                        st.write(f"Calculation: {calculation_str}")                      
-                        st.write(f"The Surrender Value is: {adjusted_value:.2f}")
-                    else:
-                        st.write(adjusted_value)
+                if isinstance(adjusted_value, (int, float)):
+                    calculation_str = f"{value} / 1000 * {sum_assured}"
+                    st.write(f"Calculation: {calculation_str}")
+                    st.write(f"The Surrender Value is: {adjusted_value:.2f}")
+                else:
+                    st.write(adjusted_value)
         else:
             st.write("Invalid plan selection. Please enter a valid plan number.")
-
 
 elif view == "Scheduling":
     csv_file_path = 'lastshedule.csv'  
