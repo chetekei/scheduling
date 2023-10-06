@@ -42,30 +42,52 @@ if view == "Calculate Surrender":
             sum_assured = int(st.number_input("Enter the Sum Assured:"))
 
             # "Calculate" button
-            if st.button("Calculate"):
-                # Function to retrieve the adjusted value at the intersection of a selected column and TERM
-                def get_adjusted_value(data_frame, units_paid, policy_term, sum_assured):
-                    try:
-                        row_index = data_frame[data_frame['TERM'] == policy_term].index[0]
-                        column_name = str(units_paid)  # Convert units_paid to string for column name
-                        value = data_frame.at[row_index, column_name]  # Access the cell using .at method
+            # if st.button("Calculate"):
+            #     # Function to retrieve the adjusted value at the intersection of a selected column and TERM
+            #     def get_adjusted_value(data_frame, units_paid, policy_term, sum_assured):
+            #         try:
+            #             row_index = data_frame[data_frame['TERM'] == policy_term].index[0]
+            #             column_name = str(units_paid)  # Convert units_paid to string for column name
+            #             value = data_frame.at[row_index, column_name]  # Access the cell using .at method
 
-                        adjusted_value = (value / 1000) * sum_assured
-                        return adjusted_value
-                    except (KeyError, IndexError):
-                        return "Invalid column name or TERM value."
+            #             adjusted_value = (value / 1000) * sum_assured
+            #             return adjusted_value
+            #         except (KeyError, IndexError):
+            #             return "Invalid column name or TERM value."
+             # Create a Streamlit button
+             if st.button("Calculate"):
+                 # Get inputs from the user (you need to define these variables based on your app's UI)
+                 units_paid = st.number_input("Units Paid", value=0)
+                 policy_term = st.number_input("Policy Term", value=0)
+                 sum_assured = st.number_input("Sum Assured", value=0)
+             
+                 # Check if all user inputs are provided
+                 if units_paid and policy_term and sum_assured:
+                     # Call the function to calculate the adjusted value
+                     adjusted_value, value, sum_assured = get_adjusted_value(your_data_frame, units_paid, policy_term, sum_assured)
+             
+                     # Check if the calculated value is a number (int or float)
+                     if isinstance(adjusted_value, (int, float)):
+                         # Display the calculation as a string
+                         calculation_str = f"{value} / 1000 * {sum_assured}"
+                         st.write(f"Calculation: {calculation_str}")
+                         st.write(f"The Surrender Value is: {adjusted_value:.2f}")
+                     else:
+                         st.write(adjusted_value)
+                 else:
+                     st.write("Please provide all required inputs.")
 
                 # Calculate the adjusted value if all user inputs are provided
-                if units_paid and policy_term and sum_assured:
-                    adjusted_value = get_adjusted_value(df, units_paid, policy_term, sum_assured)
-                    if isinstance(adjusted_value, (int, float)):
-                        calculation_str = f"{value} / 1000 * {sum_assured}"
-                        st.write(f"Calculation: {calculation_str}")                      
-                        st.write(f"The Surrender Value is: {adjusted_value:.2f}")
-                    else:
-                        st.write(adjusted_value)
-        else:
-            st.write("Invalid plan selection. Please enter a valid plan number.")
+        #         if units_paid and policy_term and sum_assured:
+        #             adjusted_value = get_adjusted_value(df, units_paid, policy_term, sum_assured)
+        #             if isinstance(adjusted_value, (int, float)):
+        #                 calculation_str = f"{value} / 1000 * {sum_assured}"
+        #                 st.write(f"Calculation: {calculation_str}")                      
+        #                 st.write(f"The Surrender Value is: {adjusted_value:.2f}")
+        #             else:
+        #                 st.write(adjusted_value)
+        # else:
+        #     st.write("Invalid plan selection. Please enter a valid plan number.")
 
 
 elif view == "Scheduling":
