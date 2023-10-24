@@ -59,7 +59,7 @@ if view == "Calculate Surrender":
                 if units_paid and policy_term and sum_assured:
                     adjusted_value = get_adjusted_value(df, units_paid, policy_term, sum_assured)
                     if isinstance(adjusted_value, (int, float)):
-                        st.write(f"The Surrender Value is: {value}/1000 * {sum_assured} to get {adjusted_value:.2f}")
+                        st.write(f"The Surrender Value is: {adjusted_value:.2f}")
 
                     else:
                         st.write(adjusted_value)
