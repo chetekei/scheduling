@@ -97,7 +97,7 @@ elif view == "Scheduling":
 
             # Format Claim Amount and Installment columns with commas and no decimal places
             policy_results['Claim Amount'] = policy_results['Claim Amount'].apply(format_number)
-            policy_results['Installment'] = policy_results['Installment'].apply(format_number)
+            policy_results['Payment'] = policy_results['Payment'].apply(format_number)
 
             # Format 'Date Scheduled' column to display full month name
             policy_results['Date Scheduled'] = pd.to_datetime(policy_results['Date Scheduled']).dt.strftime('%B %d, %Y')
@@ -119,7 +119,7 @@ elif view == "Scheduling":
             
             # Format 'Claim Amount' and 'Installment' columns with commas and no decimal places
             name_results['Claim Amount'] = name_results['Claim Amount'].apply(format_number)
-            name_results['Installment'] = name_results['Installment'].apply(format_number)
+            name_results['Payment'] = name_results['Payment'].apply(format_number)
 
             
             name_results['Date Scheduled'] = pd.to_datetime(name_results['Date Scheduled']).dt.strftime('%B %d, %Y')
