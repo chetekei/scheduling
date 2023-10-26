@@ -50,7 +50,7 @@ if view == "Calculate Surrender":
                         column_name = str(units_paid)  # Convert units_paid to string for column name
                         value = data_frame.at[row_index, column_name]  # Access the cell using .at method
 
-                        adjusted_value = float(value / 1000) * sum_assured
+                        adjusted_value = float(value) / 1000 * sum_assured
                         return adjusted_value
                     except (KeyError, IndexError):
                         return "Invalid column name or TERM value."
