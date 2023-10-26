@@ -63,8 +63,7 @@ if view == "Calculate Surrender":
                     row_index = df[df['TERM'] == policy_term].index[0]
                     column_name = str(units_paid)
                     value = df.at[row_index, column_name]
-                    formatted_value = round((value/1000), 4)
-                    sum_assured.apply(format_number) 
+                    formatted_value = round((value/1000), 4)                    
                   
                     st.write(f"The Surrender Value is: (*{formatted_value}*) *  {sum_assured} = **{adjusted_value:.2f}**")
                 else:
