@@ -65,7 +65,7 @@ if view == "Calculate Surrender":
                     row_index = df[df['TERM'] == policy_term].index[0]
                     column_name = str(units_paid)
                     value = df.at[row_index, column_name]
-                    formatted_value = round((value/1000), 4)
+                    formatted_value = (value/1000)
                     
                     
                   
