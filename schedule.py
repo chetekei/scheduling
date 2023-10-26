@@ -59,6 +59,8 @@ if view == "Calculate Surrender":
                 if units_paid and policy_term and sum_assured:
                     adjusted_value = get_adjusted_value(df, units_paid, policy_term, sum_assured)
                     if isinstance(adjusted_value, (int, float)):
+                        row_index = data_frame[data_frame['TERM'] == policy_term].index[0]
+                        column_name = str(units_paid)  # Convert units_paid to string for column name
                         value = df.at[row_index, column_name]  # Extract the value
                         st.write(f"The Surrender Value is: {value} * {sum_assured} = {adjusted_value:.2f}")
 
