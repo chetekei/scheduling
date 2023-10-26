@@ -69,7 +69,7 @@ if view == "Calculate Surrender":
                     
                     
                   
-                    st.write(f"The Surrender Value is: \n (*{formatted_value}*)  *  {sum_assured:,} \n =  **{adjusted_value:,.2f}**")
+                    st.write(f"The Surrender Value is: <br> (*{formatted_value}*)  *  {sum_assured:,} <br> =  **{adjusted_value:,.2f}**")
                 else:
                    st.write(adjusted_value)
                  
