@@ -55,9 +55,7 @@ if view == "Calculate Surrender":
                     except (KeyError, IndexError):
                         return "Invalid column name or TERM value."
 
-             # Define a function to format numbers with commas in thousands
-            def format_number(number):
-                return f'{number:,.0f}'
+             
 
                 # Calculate the adjusted value if all user inputs are provided
                 # Calculate the adjusted value if all user inputs are provided
@@ -68,10 +66,10 @@ if view == "Calculate Surrender":
                     column_name = str(units_paid)
                     value = df.at[row_index, column_name]
                     formatted_value = round((value/1000), 4)
-                    formatted_sum_assured = format_number(sum_assured)
-                    formatted_adjusted_value = format_number(adjusted_value)
+                    
+                    
                   
-                    st.write(f"The Surrender Value is: (*{formatted_value}*) *  {formatted_sum_assured} = **{formatted_adjusted_value:.2f}**")
+                    st.write(f"The Surrender Value is: (*{formatted_value}*) *  {sum_assured:,} = **{adjusted_value:,.2f}**")
                 else:
                    st.write(adjusted_value)
                  
