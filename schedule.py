@@ -56,15 +56,16 @@ if view == "Calculate Surrender":
                         return "Invalid column name or TERM value."
 
                 # Calculate the adjusted value if all user inputs are provided
-                if units_paid and policy_term and sum_assured:
-                    # adjusted_value = get_adjusted_value(df, units_paid, policy_term, sum_assured)
-                    row_index, column_name, adjusted_value = get_adjusted_value(df, units_paid, policy_term, sum_assured)
-
-                    if isinstance(adjusted_value, (int, float)):
-                        value = df.at[row_index, column_name]
-                        
-                        st.write(f"The Surrender Value is: {value} * {sum_assured} = {adjusted_value:.2f}")
-
+                # Calculate the adjusted value if all user inputs are provided
+                adjusted_value = get_adjusted_value(df, units_paid, policy_term, sum_assured)
+                
+                if isinstance(adjusted_value, (int, float)):
+                    row_index = df[df['TERM'] == policy_term].index[0]
+                    column_name = str(units_paid)
+                    value = df.at[row_index, column_name]
+                    st.write(f"The Value is: {value:.2f}")
+                    st.write(f"The Surrender Value is: {adjusted_value:.2f}")
+                
                     else:
                         st.write(adjusted_value)
         else:
