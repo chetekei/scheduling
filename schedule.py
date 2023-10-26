@@ -65,9 +65,9 @@ if view == "Calculate Surrender":
                     value = df.at[row_index, column_name]
                     st.write(f"The Value is: {value:.2f}")
                     st.write(f"The Surrender Value is: {adjusted_value:.2f}")
-                
-                    else:
-                        st.write(adjusted_value)
+                else:
+                   st.write(adjusted_value)
+                 
         else:
             st.write("Invalid plan selection. Please enter a valid plan number.")
 
