@@ -64,7 +64,7 @@ if view == "Calculate Surrender":
                     column_name = str(units_paid)
                     value = df.at[row_index, column_name]
                   
-                    st.write(f"The Surrender Value is: ({value:.2f}/1000) *  {sum_assured} = {adjusted_value:.2f}")
+                    st.write(f"The Surrender Value is: ({value/1000}) *  {sum_assured} = **{adjusted_value:.2f}**")
                 else:
                    st.write(adjusted_value)
                  
