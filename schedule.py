@@ -67,7 +67,7 @@ if view == "Calculate Surrender":
             st.write("Invalid plan selection. Please enter a valid plan number.")
 
 elif view == "Scheduling":
-    csv_file_path = 'lastshedule.csv'  
+    csv_file_path = 'final.csv'  
     df = pd.read_csv(csv_file_path)
 
     # Sidebar input boxes
