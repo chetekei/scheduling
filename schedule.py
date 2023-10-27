@@ -3,6 +3,7 @@ import pandas as pd
 import datetime
 import base64
 
+
 # Configuration
 st.set_option('deprecation.showfileUploaderEncoding', False)
 
@@ -37,9 +38,12 @@ if view == "Calculate Surrender":
             df.columns = df.columns.astype(str)
 
             # User input for policy details
+            name = st.text_input("Enter name of the insured")
+            policy_number = st.text_input("Enter Policy Number")
+            sum_assured = int(st.number_input("Enter the Sum Assured:"))
             units_paid = int(st.number_input("Enter the number of units Paid"))
             policy_term = int(st.number_input("Enter the Policy Term"))
-            sum_assured = int(st.number_input("Enter the Sum Assured:"))
+            
 
             # "Calculate" button
             if st.button("Calculate"):
@@ -52,6 +56,7 @@ if view == "Calculate Surrender":
 
                         adjusted_value = float(value) / 1000 * sum_assured
                         return adjusted_value
+                    
                     except (KeyError, IndexError):
                         return "Invalid column name or TERM value."
 
@@ -65,11 +70,45 @@ if view == "Calculate Surrender":
                     row_index = df[df['TERM'] == policy_term].index[0]
                     column_name = str(units_paid)
                     value = df.at[row_index, column_name]
-                    formatted_value = (value/1000)
-                    
+                    formatted_value = (value/1000)                  
                     
                   
                     st.write(f"The Surrender Value is: <br> (*{formatted_value}*)  *  {sum_assured:,} <br> =  **{adjusted_value:,.0f}**" , unsafe_allow_html=True)
+
+                    url = "https://www.bing.com/images/search?view=detailV2&ccid=vKHeGPlO&id=D2CE01A41EF4AF363F21CABE144E3BDD731650D1&thid=OIP.vKHeGPlOz4iZMsq0QMQH0wHaDD&mediaurl=https%3A%2F%2Fsokodirectory.com%2Fwp-content%2Fuploads%2F2016%2F07%2FCorporate-Insurance-Company.jpg&cdnurl=https%3A%2F%2Fth.bing.com%2Fth%2Fid%2FR.bca1de18f94ecf889932cab440c407d3%3Frik%3D0VAWc907ThS%252byg%26pid%3DImgRaw%26r%3D0&exph=290&expw=702&q=corporate+insurance+company&simid=607988656116206866&form=IRPRST&ck=61276C047C84B7600CC7E0B7DCE160A4&selectedindex=1&ajaxhist=0&ajaxserp=0&pivotparams=insightsToken%3Dccid_yEaMgL9j*cp_D100553B4A8B4CD3E464B2AC98388A56*mid_683292741C7A6890D8DA31F255E89A2F34245170*simid_608003598316414949*thid_OIP.yEaMgL9jGkcRS9gptq4r8gAAAA&vt=0&sim=11&iss=VSI&ajaxhist=0&ajaxserp=0"
+
+                    # Create an HTML report
+                    html_report = f"""
+                    <html>
+                    <head>
+                        <style>
+                            body {{ font-family: Arial, sans-serif; }}
+                            h1 {{ color: black; }}
+                        </style>
+                    </head>
+                    <body style="text-align: center;">
+                        <img src="https://viva-365.com/wp-content/uploads/2021/01/Corporate-Insurance.png" alt="Your Image" width="150">
+                        <h2> SURRENDER VALUE</h2>
+                        <p><strong>Insured:</strong> {name}</p>
+                        <p><strong>Policy Number:</strong> {policy_number}</p>
+                        <p><strong>Sum Assured:</strong> {sum_assured:,.0f}</p>
+                        <p><strong>Policy Term:</strong> {policy_term}</p>
+                        <p><strong>Units Paid:</strong> {units_paid}</p><br>                        
+                        <p><strong>Surrender Value:</strong> ({formatted_value})  *  ({sum_assured:,})  = <strong>Ksh. {adjusted_value:,.0f}</strong</p>
+                    </body>
+                    </html>
+                    """
+                    
+                # Create a download button with customized file name
+            
+                    st.download_button(
+                        label=f"Download {name}'s surrender value (HTML)",
+                        data=html_report.encode('utf-8'),
+                        file_name=f"{name}_score_report.html",
+                        mime="text/html"
+                    )
+
+
                 else:
                    st.write(adjusted_value)
                  
