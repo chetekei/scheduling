@@ -87,6 +87,8 @@ if view == "Calculate Surrender":
                         </style>
                     </head>
                     <body style="text-align: center;">
+                        <br>
+                        
                         <img src="https://viva-365.com/wp-content/uploads/2021/01/Corporate-Insurance.png" alt="Your Image" width="150">
                         <h2> SURRENDER VALUE</h2>
                         <p><strong>Insured:</strong> {name}</p>
