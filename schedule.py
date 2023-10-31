@@ -43,6 +43,7 @@ if view == "Calculate Surrender":
             sum_assured = int(st.number_input("Enter the Sum Assured:"))
             units_paid = int(st.number_input("Enter the number of units Paid"))
             policy_term = int(st.number_input("Enter the Policy Term"))
+            prepared = st.selectbox("Prepared By:",['Mary', 'Lennox'])
             
 
             # "Calculate" button
@@ -87,8 +88,6 @@ if view == "Calculate Surrender":
                         </style>
                     </head>
                     <body style="text-align: center;">
-                        <br>
-                        
                         <img src="https://viva-365.com/wp-content/uploads/2021/01/Corporate-Insurance.png" alt="Your Image" width="150">
                         <h2> SURRENDER VALUE</h2>
                         <p><strong>Insured:</strong> {name}</p>
@@ -97,6 +96,7 @@ if view == "Calculate Surrender":
                         <p><strong>Policy Term:</strong> {policy_term}</p>
                         <p><strong>Units Paid:</strong> {units_paid}</p><br>                        
                         <p><strong>Surrender Value:</strong> ({formatted_value})  *  ({sum_assured:,})  = <strong>Ksh. {adjusted_value:,.0f}</strong</p>
+                        <p style="position: absolute; bottom: 0;"><strong>Prepared By:</strong>{prepared}</p>
                     </body>
                     </html>
                     """
@@ -197,6 +197,7 @@ elif view == "Scheduling":
         return href
 
     # ... (filtering and formatting code)
+    
 
     if st.sidebar.button("Scheduled Payments for This Week"):
         # Assuming your 'Date Scheduled' column contains the date information
