@@ -1,2 +1,2 @@
 # scheduling
-A streamlit application for scheduling payments to clients in life insurance based on maturity date and date surrendered.
+A streamlit application for scheduling client payments in life insurance based on maturity date and date surrendered.
