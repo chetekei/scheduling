@@ -62,9 +62,6 @@ if check_password():
     # Configuration
     st.set_option('deprecation.showfileUploaderEncoding', False)
 
-    # Title of the app
-    st.title("Life Claims Payment Schedule")
-
     # Add a sidebar
     st.sidebar.image('corplogo.PNG', use_column_width=True)
     st.sidebar.subheader("Search Clients Details")  # User input for plan selection
@@ -189,6 +186,8 @@ if check_password():
 
 
     elif view == "Scheduling":
+        
+        st.title("Life Claims Payment Schedule")
         csv_file_path = 'final.csv'  
         df = pd.read_csv(csv_file_path)
 
