@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "corplife",
+  "private_key_id": "c1a7f61f3ef5c9c0e2efa63f2032b0a89d4f9eac",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDfef4wgEnsTtw6\nB9MmwFW0ysirjt5WCl8lnEDMRxA7oQ7r23ZTM925aoSDh/LChwHOz6cZ1n7gQkU1\n19whx+bKn4kwZ9gHMEpOE8p2qYKKTWS/VdqxvynvaCFevmH52yiFoRJZuLczcBqT\nh1/rbRO7vJdugBP82K9QmibXkACrOAK6ko5T3/zP7v+fC/7ofuLjULk91IWeI0bW\npWqhQofcziXm/yGrLMniH3+Hkeqnv0Af3RXp8HCbiWjLD7tN2QssHUlGGwbb5LEK\nVTj+tWfgoI8x9AVwVPg+j1F9OVE8Oxubhnp+7F1phKmliDPQHi4OyapzjCcAt5Aq\nTAw62BLhAgMBAAECggEABP9GySG5Qoqan39NKN7sSj/c3RrcRX9/GiDnXk5i88oI\nQq46P710gmx6FrEi40CNR8ZF+7stFc9fArA9Hp2fkMwgskg+Wx5ABmIRC+rUCWJE\nyx724FeX0eXIW5vYYJx/QqGFW+nA+PvTXts05PSaQQU+dkQTmfrM5D9nSbiomhQ6\npMdIZaOapbYzYj3k6co7zxw0ZV+/HRmn7REFnHrAgOsTHNkKQxs3ZD6micM8coWE\nAgKzeSEQz9mu8Tr6cuJk3ALZKgXXsIW6CnpmhVGL6fG/YgLbS87jX3Rv/Z0J0G+n\nvMIVGKpkBeFxhqxHYP+oasc1f6DmlpaTHryN4vzmBQKBgQD5roLtO3+vnLIJchfb\n8er+5T9S81o0Lu/iTHAGmhd1IOgErovxddpa4MhdLhR76L6RP0h0D8IhNwB9IuDK\nPsutHs6fCuCIPSRXtO6L+Gfs2pP51tuLYxFc8Qw7hGb+LPEWbaXYZqsYi0A3iOZo\nrCMGG/oEW1bL/pod83m1ck1bbQKBgQDlIbgevZwybwkUKQ3WDYT5KS10pCedJPOK\nPcrCxpHgIuQgm1T31IqJTWzVU+VPmU30BWAS+NPmZYg8+BKqpvE9aPY+H19nYe5j\nR19xQ2I9WUh+3QRbnplwDjF9GZUOwe6RqqbFCVdgrvTznTM4LBoAxzNg6kNxh2mb\n7QaMhiiYxQKBgEpTNaxTGuZ2+dSv/wQ9Vpv8OEaEJKUGF+jAolSEyFjYq9jA8O23\nDIIjCeIbFoPwO9JXCUVrb3mduuqFWG88FDt7wTw866wCr2/gb2aBUsaCJqyn1gD/\nQ6rsIp0RA+vECxyHFWh+343V3g7qFNSx8VcfOuTTH9pn9w7VbLSjyv1dAoGAFMnc\nZJ2bYFAGqNeYs8UCPYDo6N5D4dQKbI5yqP1PGuDPhc3SBbI454Ao0aoM8g3crrkW\nIGKHBy5LEA0J1IXU+VdekABUrZKLCGLfW+1bKmnBVBFFZfKbxTjkcI8zoOUjef/b\npaDVVqZI/xlSHlSR/2QTW0Wl3NUGVelJYNKDOGkCgYA5CzBeqeUoRKIXwvv5DTE4\nbSz89gl2r3+LGBwHkkJ7WZooll/3c+H+tSzMqvulnrxSBdOEF6oiyp6Dmocuv7ik\nBVBA7/WddRjbLI9OKpZQISD//MUFHUSGoyTwG8wmntLVeR6YsOFgU+WY62oU7J02\nSQaCgkSN+9hlC94+hRoGtw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "corplife@corplife.iam.gserviceaccount.com",
+  "client_id": "101067799522566870763",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/corplife%40corplife.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
