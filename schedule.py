@@ -199,7 +199,7 @@ if check_password():
 
         filtered_df['Amount'] = pd.to_numeric(filtered_df['Amount'], errors='coerce')
 
-        total = filtered_df['Amount'].sum()
+        st.write(filtered_df['Amount'].sum())
         
         st.markdown (f"Total Amount Paid in **{selected}**: **{total}**")
         
