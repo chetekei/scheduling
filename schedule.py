@@ -185,17 +185,15 @@ if check_password():
         # Get the unique reviewer names from the DataFrame
         unique_month = df['Month Paid'].unique()
 
-        # Create a dropdown to select a month with "All" option
-        selected = st.selectbox("Filter by Month Payment Done:", ["All"] + list(unique_month))
+        # Create a dropdown to select a month with "All Payments" option
+        selected = st.selectbox("Filter by Month Payment Done:", ["All Payments"] + list(unique_month))
 
-        if selected != "All":
+        if selected != "All Payments":
             # Filter the DataFrame based on the selected month
             filtered_df = df[df['Month Paid'] == selected]
         else:
-            # If "All" is selected, show the entire DataFrame
+            # If "All Payments" is selected, show the entire DataFrame
             filtered_df = df
-
-            #edited_df = st.data_editor(filtered_df)
 
         st.dataframe(filtered_df)
         
