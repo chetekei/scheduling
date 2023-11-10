@@ -197,7 +197,7 @@ if check_password():
 
         st.dataframe(filtered_df)
 
-        # filtered_df['Amount'] = pd.to_numeric(filtered_df['Amount'], errors='coerce')
+        filtered_df['Amount'] = pd.to_numeric(filtered_df['Amount'], errors='coerce')
 
         total = filtered_df['Amount'].sum()
         
