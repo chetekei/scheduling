@@ -197,7 +197,7 @@ if check_password():
 
             #edited_df = st.data_editor(filtered_df)
 
-            st.dataframe(filtered_df)
+            #st.dataframe(filtered_df)
         
 
 
