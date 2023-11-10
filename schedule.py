@@ -196,6 +196,10 @@ if check_password():
             filtered_df = df
 
         st.dataframe(filtered_df)
+
+        total = filtered_df['Amount'].sum()
+        
+        st.markdown (f"Total Amount Paid in **{selected}**: **{total}**")
         
 
 
