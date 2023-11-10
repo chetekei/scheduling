@@ -196,6 +196,8 @@ if check_password():
             filtered_df = df
 
       
+        number = int(filtered_df['Amount'])
+        filtered_df['Amount'] = format(number, ",")
         
         st.dataframe(filtered_df)
 
