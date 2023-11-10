@@ -195,11 +195,18 @@ if check_password():
             # If "All Payments" is selected, show the entire DataFrame
             filtered_df = df
 
+        # Function to format numbers with commas
+        def add_commas(number):
+            return '{:,}'.format(number)
+        
+        # Apply the function to the DataFrame column
+        filtered_df['Amount'] = filtered_df['Amount'].apply(add_commas)
+        
         st.dataframe(filtered_df)
 
         filtered_df['Amount'] = pd.to_numeric(filtered_df['Amount'], errors='coerce')
 
-        st.write(filtered_df['Amount'].sum())
+        total = filtered_df['Amount'].sum()
         
         st.markdown (f"Total Amount Paid in **{selected}**: **{total}**")
         
