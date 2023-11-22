@@ -215,11 +215,11 @@ if check_password():
 
     elif view == "Scheduling":
 
-        data = worksheet2.get_all_values()
-        headers = data[0]
-        data = data[1:]
+        data2 = worksheet2.get_all_values()
+        headers = data2[0]
+        data2 = data2[1:]
 
-        df = pd.DataFrame(data, columns = headers)
+        df2 = pd.DataFrame(data2, columns = headers)
         
         st.title("Life Claims Payment Schedule")
        
@@ -238,10 +238,10 @@ if check_password():
 
         # Filtering based on user input
         # Convert 'Policy Number' column to string
-        df['Policy Number'] = df['Policy Number'].astype(str)
+        df2['Policy Number'] = df2['Policy Number'].astype(str)
 
         if search_policy:
-            policy_results = df[df['Policy Number'].str.contains(search_policy, case=False)]
+            policy_results = df2[df2['Policy Number'].str.contains(search_policy, case=False)]
 
             if policy_results.empty:
                 st.write("Data Not Available")
@@ -265,7 +265,7 @@ if check_password():
                 st.table(styled_results)
 
         if search_name:
-            name_results = df[df['Insured '].str.contains(search_name, case=False)]
+            name_results = df2[df2['Insured '].str.contains(search_name, case=False)]
 
             if name_results.empty:
                 st.write("Data Not Available")
