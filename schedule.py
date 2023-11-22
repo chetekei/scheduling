@@ -312,8 +312,8 @@ if check_password():
             else:
                 
                 # Format 'Claim Amount' and 'Installment' columns with commas and no decimal places
-                name_results['Claim Amount'] = name_results['Claim Amount'].apply(format_number)
-                name_results['Payment'] = name_results['Payment'].apply(format_number)
+                name_results['Claim Amount'] = name_results['Claim Amount']
+                name_results['Payment'] = name_results['Payment']
 
                 
                 name_results['Date Scheduled'] = pd.to_datetime(name_results['Date Scheduled']).dt.strftime('%B %d, %Y')
