@@ -58,6 +58,7 @@ if check_password():
     # Open the Google Sheets spreadsheet
     worksheet = gc.open_by_url(url).worksheet("payments")
     worksheet2 = gc.open_by_url(url).worksheet("schedule")
+    worksheet3 = gc.open_by_url(url).worksheet("maturity")
 
 
     # Configuration
@@ -69,7 +70,7 @@ if check_password():
     st.sidebar.subheader("Search Clients Details")  # User input for plan selection
 
     # Create a sidebar to switch between views
-    view = st.sidebar.radio("View", ["Scheduling", "Payments", "Calculate Surrender"])
+    view = st.sidebar.radio("View", ["Scheduling", "Payments", "Calculate Surrender", "Expected Maturity"])
 
     if view == "Calculate Surrender":
 
@@ -210,6 +211,45 @@ if check_password():
         edited_total = format(number, ",")
         
         st.markdown (f"Total Amount Paid in **{selected}**: **{edited_total}**")
+
+    elif view == "Expected Maturity":
+            data = worksheet3.get_all_values()
+            headers = data[0]
+            data = data[1:]
+    
+            df3 = pd.DataFrame(data, columns = headers)
+
+            unique_year = df3['Year'].unique()
+             
+             # Get the unique reviewer names from the DataFrame
+            unique_month = df3['Month Name'].unique()
+            
+            selected_year = st.selectbox("Filter by Year:", ["All Payments"] + list(unique_year), key="year_selector")
+            
+            # Dropdown for Month selection
+            selected_month = st.selectbox("Filter by Month:", ["All Payments"] + list(unique_month), key="month_selector")
+
+            
+            # Apply filters to the DataFrame
+            filtered_df = df3.copy()
+            
+            if selected_year != "All Payments":
+                filtered_df = filtered_df[filtered_df['Year'] == selected_year]
+            
+            if selected_month != "All Payments":
+                filtered_df = filtered_df[filtered_df['Month Name'] == selected_month]
+            
+            # Display the filtered DataFrame
+            st.write("Filtered DataFrame:")
+            st.write(filtered_df)
+
+             # Add a button to download the filtered data as a CSV
+            if st.button("Download CSV"):
+                csv_data = filtered_df.to_csv(index=False, encoding='utf-8')
+                b64 = base64.b64encode(csv_data.encode()).decode()
+                href = f'<a href="data:file/csv;base64,{b64}" download="maturities_report.csv">Download CSV</a>'
+                st.markdown(href, unsafe_allow_html=True)                              
+             
         
 
 
