@@ -268,13 +268,6 @@ if check_password():
         search_policy = st.sidebar.text_input("Search by Policy Number", "")
         search_name = st.sidebar.text_input("Search by Client Name", "")
 
-        # Custom function to format numbers with commas and no decimal places
-        # def format_number(number):
-        #     if pd.notna(number) and isinstance(number, (int, float)):
-        #         return '{:,.0f}'.format(number)
-        #     else:
-        #         return 'Laiase with Finance'
-
 
         # Filtering based on user input
         # Convert 'Policy Number' column to string
@@ -290,8 +283,8 @@ if check_password():
                 policy_results['Installment'] = policy_results['Installment'].fillna(policy_results['Claim Amount'])
 
                 # Format Claim Amount and Installment columns with commas and no decimal places
-                policy_results['Claim Amount'] = policy_results['Claim Amount'].apply(format_number)
-                policy_results['Payment'] = policy_results['Payment'].apply(format_number)
+                policy_results['Claim Amount'] = policy_results['Claim Amount']
+                policy_results['Payment'] = policy_results['Payment']
 
                 # Format 'Date Scheduled' column to display full month name
                 policy_results['Date Scheduled'] = pd.to_datetime(policy_results['Date Scheduled']).dt.strftime('%B %d, %Y')
