@@ -265,7 +265,7 @@ if check_password():
                 st.table(styled_results)
 
         if search_name:
-            name_results = df2[df2['Insured '].str.contains(search_name, case=False)]
+            name_results = df2[df2['Insured'].str.contains(search_name, case=False)]
 
             if name_results.empty:
                 st.write("Data Not Available")
@@ -283,7 +283,7 @@ if check_password():
                 name_results.reset_index(drop=True, inplace=True)
 
             # Style the table
-                styled_results = name_results[['Insured ', 'Policy Number', 'Claim Type', 'Date Scheduled', 'Re - scheduled Date', 'Claim Amount', 'Payment']].style\
+                styled_results = name_results[['Insured', 'Policy Number', 'Claim Type', 'Date Scheduled', 'Re - scheduled Date', 'Claim Amount', 'Payment']].style\
                     .set_table_styles([{'selector': 'th',
                                         'props': [('background-color', '#f19cbb'),
                                                 ('font-weight', 'bold')]}])
