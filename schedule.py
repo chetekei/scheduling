@@ -224,19 +224,19 @@ if check_password():
              # Get the unique reviewer names from the DataFrame
             unique_month = df3['Month Name'].unique()
             
-            selected_year = st.selectbox("Filter by Year:", ["All Payments"] + list(unique_year), key="year_selector")
+            selected_year = st.selectbox("Filter by Year:", ["All"] + list(unique_year), key="year_selector")
             
             # Dropdown for Month selection
-            selected_month = st.selectbox("Filter by Month:", ["All Payments"] + list(unique_month), key="month_selector")
+            selected_month = st.selectbox("Filter by Month:", ["All"] + list(unique_month), key="month_selector")
 
             
             # Apply filters to the DataFrame
             filtered_df = df3.copy()
             
-            if selected_year != "All Payments":
+            if selected_year != "All":
                 filtered_df = filtered_df[filtered_df['Year'] == selected_year]
             
-            if selected_month != "All Payments":
+            if selected_month != "All":
                 filtered_df = filtered_df[filtered_df['Month Name'] == selected_month]
             
             # Display the filtered DataFrame
