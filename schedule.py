@@ -57,6 +57,7 @@ if check_password():
         
     # Open the Google Sheets spreadsheet
     worksheet = gc.open_by_url(url).worksheet("payments")
+    worksheet2 = gc.open_by_url(url).worksheet("schedule")
 
 
     # Configuration
@@ -213,10 +214,15 @@ if check_password():
 
 
     elif view == "Scheduling":
+
+        data = worksheet2.get_all_values()
+        headers = data[0]
+        data = data[1:]
+
+        df = pd.DataFrame(data, columns = headers)
         
         st.title("Life Claims Payment Schedule")
-        csv_file_path = 'final.csv'  
-        df = pd.read_csv(csv_file_path)
+       
 
         # Sidebar input boxes
         search_policy = st.sidebar.text_input("Search by Policy Number", "")
