@@ -254,51 +254,48 @@ if check_password():
 
         registry = pd.read_csv("myfinalregistry.csv")
         
-        st.title("File Location In Registry")
-        
+        st.title("File Location In Registry")        
         
         # Sidebar input boxes
         search_policy = st.sidebar.text_input("Search by Policy Number", "")
         search_name = st.sidebar.text_input("Search by Client Name", "")
         
-        
-        # Filtering based on user input
         # Convert 'Policy Number' column to string
         registry['Policy Number'] = registry['Policy Number'].astype(str)
         
         if search_policy:
         policy_results = registry[registry['Policy Number'].str.contains(search_policy, case=False)]
         
-        if policy_results.empty:
-        st.write("File Not Available")
-        else:
-        
-        
-        styled_results = policy_results[['Insured ', 'Policy Number', 'Batch']].style\
-            .set_table_styles([{'selector': 'th',
-                                'props': [('background-color', '#f19cbb'),
-                                        ('font-weight', 'bold')]}])
-        
-        st.table(styled_results)
-        
+            if policy_results.empty:
+                st.write("File Not Available")
+            else:
+            
+            
+                styled_results = policy_results[['Insured ', 'Policy Number', 'Batch']].style\
+                    .set_table_styles([{'selector': 'th',
+                                        'props': [('background-color', '#f19cbb'),
+                                                ('font-weight', 'bold')]}])
+                
+                st.table(styled_results)
+                
         if search_name:
-        name_results = registry[registry['Insured '].str.contains(search_name, case=False)]
+            name_results = registry[registry['Insured '].str.contains(search_name, case=False)]
         
-        if name_results.empty:
-        st.write("File Not Available")
-        else:               
+            if name_results.empty:
+                st.write("File Not Available")
+            else:               
         
-        # Reset the index and remove the default index column
-        name_results.reset_index(drop=True, inplace=True)
-        
-        # Style the table
-        styled_results = name_results[['Insured ', 'Policy Number', 'Batch']].style\
-            .set_table_styles([{'selector': 'th',
-                                'props': [('background-color', '#f19cbb'),
-                                        ('font-weight', 'bold')]}])
-        
-        st.table(styled_results)
-        
+            # Reset the index and remove the default index column
+            name_results.reset_index(drop=True, inplace=True)
+            
+            # Style the table
+            styled_results = name_results[['Insured ', 'Policy Number', 'Batch']].style\
+                .set_table_styles([{'selector': 'th',
+                                    'props': [('background-color', '#f19cbb'),
+                                            ('font-weight', 'bold')]}])
+            
+            st.table(styled_results)
+            
 
 
 
