@@ -264,7 +264,7 @@ if check_password():
         registry['Policy Number'] = registry['Policy Number'].astype(str)
         
         if search_policy:
-        policy_results = registry[registry['Policy Number'].str.contains(search_policy, case=False)]
+            policy_results = registry[registry['Policy Number'].str.contains(search_policy, case=False)]
         
             if policy_results.empty:
                 st.write("File Not Available")
