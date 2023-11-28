@@ -285,19 +285,17 @@ if check_password():
                 st.write("File Not Available")
             else:               
         
-            # Reset the index and remove the default index column
-            name_results.reset_index(drop=True, inplace=True)
-            
-            # Style the table
-            styled_results = name_results[['Insured ', 'Policy Number', 'Batch']].style\
-                .set_table_styles([{'selector': 'th',
-                                    'props': [('background-color', '#f19cbb'),
-                                            ('font-weight', 'bold')]}])
-            
-            st.table(styled_results)
-            
-
-
+                # Reset the index and remove the default index column
+                name_results.reset_index(drop=True, inplace=True)
+                
+                # Style the table
+                styled_results = name_results[['Insured ', 'Policy Number', 'Batch']].style\
+                    .set_table_styles([{'selector': 'th',
+                                        'props': [('background-color', '#f19cbb'),
+                                                ('font-weight', 'bold')]}])
+                
+                st.table(styled_results)
+        
 
     elif view == "Scheduling":
 
