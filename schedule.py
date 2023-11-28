@@ -70,7 +70,7 @@ if check_password():
     st.sidebar.subheader("Search Clients Details")  # User input for plan selection
 
     # Create a sidebar to switch between views
-    view = st.sidebar.radio("View", ["Scheduling", "Payments", "Calculate Surrender", "Expected Maturity"])
+    view = st.sidebar.radio("View", ["Registry", "Scheduling", "Payments", "Calculate Surrender", "Expected Maturity"])
 
     if view == "Calculate Surrender":
 
@@ -248,7 +248,56 @@ if check_password():
                 csv_data = filtered_df.to_csv(index=False, encoding='utf-8')
                 b64 = base64.b64encode(csv_data.encode()).decode()
                 href = f'<a href="data:file/csv;base64,{b64}" download="maturities_report.csv">Download CSV</a>'
-                st.markdown(href, unsafe_allow_html=True)                              
+                st.markdown(href, unsafe_allow_html=True)  
+
+     elif view == "Registry":
+
+        registry = pd.read_csv("myregistry.csv")
+        
+        st.title("File Location In Registry")
+       
+
+        # Sidebar input boxes
+        search_policy = st.sidebar.text_input("Search by Policy Number", "")
+        search_name = st.sidebar.text_input("Search by Client Name", "")
+
+
+        # Filtering based on user input
+        # Convert 'Policy Number' column to string
+        registry['Policy Number'] = registry['Policy Number'].astype(str)
+
+        if search_policy:
+            policy_results = registry[registry['Policy Number'].str.contains(search_policy, case=False)]
+
+            if policy_results.empty:
+                st.write("File Not Available")
+            else:
+                
+
+                styled_results = policy_results[['Insured ', 'Policy Number', 'Batch']].style\
+                    .set_table_styles([{'selector': 'th',
+                                        'props': [('background-color', '#f19cbb'),
+                                                ('font-weight', 'bold')]}])
+
+                st.table(styled_results)
+
+        if search_name:
+            name_results = registry[registry['Insured '].str.contains(search_name, case=False)]
+
+            if name_results.empty:
+                st.write("File Not Available")
+            else:               
+                
+                # Reset the index and remove the default index column
+                name_results.reset_index(drop=True, inplace=True)
+
+            # Style the table
+                styled_results = name_results[['Insured ', 'Policy Number', 'Batch']].style\
+                    .set_table_styles([{'selector': 'th',
+                                        'props': [('background-color', '#f19cbb'),
+                                                ('font-weight', 'bold')]}])
+
+                st.table(styled_results)
              
         
 
