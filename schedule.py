@@ -252,7 +252,7 @@ if check_password():
 
      elif view == "Registry":
 
-        registry = pd.read_csv("myregistry.csv")
+        registry = pd.read_csv("myfinalregistry.csv")
         
         st.title("File Location In Registry")
        
