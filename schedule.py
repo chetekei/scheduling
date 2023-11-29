@@ -1,4 +1,5 @@
 import streamlit as st
+from st_aggrid import AgGrid
 import pandas as pd
 import gspread
 from google.oauth2 import service_account
@@ -200,8 +201,8 @@ if check_password():
 
       
         
-        
-        st.dataframe(filtered_df)
+        AgGrid(filtered_df)
+        # st.dataframe(filtered_df)
 
         filtered_df['Amount'] = pd.to_numeric(filtered_df['Amount'], errors='coerce')
 
@@ -275,6 +276,9 @@ if check_password():
                     .set_table_styles([{'selector': 'th',
                                         'props': [('background-color', '#f19cbb'),
                                                 ('font-weight', 'bold')]}])
+                # styled = policy_results[[ 'Insured ', 'Policy Number', 'Batch']]
+
+                # AgGrid(styled)
                 
                 st.table(styled_results)
                 
