@@ -202,7 +202,7 @@ if check_password():
       
         
         AgGrid(filtered_df)
-        # st.dataframe(filtered_df)
+        
 
         filtered_df['Amount'] = pd.to_numeric(filtered_df['Amount'], errors='coerce')
 
@@ -212,6 +212,13 @@ if check_password():
         edited_total = format(number, ",")
         
         st.markdown (f"Total Amount Paid in **{selected}**: **{edited_total}**")
+
+         # Add a button to download the filtered data as a CSV
+        if st.button("Download CSV"):
+            csv_data = filtered_df.to_csv(index=False, encoding='utf-8')
+            b64 = base64.b64encode(csv_data.encode()).decode()
+            href = f'<a href="data:file/csv;base64,{b64}" download="maturities_report.csv">Download CSV</a>'
+            st.markdown(href, unsafe_allow_html=True)  
 
     elif view == "Expected Maturity":
             data = worksheet3.get_all_values()
