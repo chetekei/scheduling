@@ -179,89 +179,130 @@ if check_password():
         <!DOCTYPE html>
         <html>
         <style>
+            
             .container {
                 display: flex;
-                justify-content: center;
+                justify-content: space-between;         
             }
-        
-            .text {
+            .image{
+                text-align: center;
+            }
+            .text{
                 font-size: 20px;
                 margin: 30px;
             }
-        
-            .flex-container {
-                display: flex;
-                justify-content: center;
+            .table {
+                width: 25%;
+            }
+            table {
+                border-collapse: collapse; /* Combine adjacent table borders */
+                width: 75%;
+                margin-right: 25px;
+                font-size: 20px; /* Reduce the font size */
+            }
+            th, td {
+                border: 1px solid black; /* Add borders to th and td elements */
+                padding: 8px;
+                text-align: left;
+            }
+            th {
+                background-color: #FF69B4; /* Optional: Add a background color to header cells */
             }
         
-            .flex-container img {
+            .anticipated-maturities img {
                 margin: 0 10px; /* Adjust the margin as needed */
             }
         </style>
         
-        <div class="container">
-            <div class="flex-container">
-                <img src="https://viva-365.com/wp-content/uploads/2021/01/Corporate-Insurance.png" alt="Image Description">
-            </div>
+        <div class="image">
+            <img src="https://viva-365.com/wp-content/uploads/2021/01/Corporate-Insurance.png" alt="Image Description">
         
-            <div class="text">
         
-                **RUNNING POLICIES**
         
-                There is a total of **2759** running policies as at 30th November 2023.
+        <h1>LIFE DATA REPORT SUMMARY </h1>
         
-                *Below is the composition of the policy register*
-        
-                | Status   |   Number of Policies |
-                |:---------|--------:|
-                | IN FORCE |     641 |
-                | PAID UP  |    2118 |
-                | **TOTAL**| **2759** |
-        
-                <br>
-        
-                **SURRENDER POLICIES**
-        
-                There is a total of **89** surrendered policies between 1st September and as at 6th October 2023.
-        
-                *Below is the composition of the policies*
-        
-                | Month     |  Number of Policies |
-                |:----------|--------:|
-                | November  |      22 |
-                | October   |      28 |
-                | September |      39 |
-                | **TOTAL** | **89** |
-        
-                <br>
-        
-                <br>
-        
-                **PAID CLAIMS**
-        
-                <img src="payments.png" alt="Paid Claims Image Description">
-        
-                <br>
-        
-                <br>
-        
-                **ANTICIPATED MATURITIES**<br>
-                What are we anticipating for 2024... ?
-        
-                <div class="flex-container">
-                    <img src="COUNT3.png" alt="Paid Claims Image Description">
-                    <img src="AMOUNT3.png" alt="Paid Claims Image Description">
-                </div>
-        
-            </div>
         </div>
-        </html>
-        """
+        This report entails data on the policy register, claim payments and what we are anticipating in the life department based on the data available prepared as at 30th November 2023.
         
-        st.markdown(html_code, unsafe_allow_html=True)
+        <br>
+        
+        <div class="text">
+        
+        <h3><U>RUNNING POLICIES</U></h3>
+        
+        
+        There is a total of **2759** running policies as at 30th November 2023.
+        
+        *Below is the composition of the policy register*
+        
+        | Status   |   Number of Policies |
+        |:---------|--------:|
+        | IN FORCE |     641 |
+        | PAID UP  |    2118 |
+        | **TOTAL**| **2759** |
+        
+        <br>
+        
+        <h3><u>SURRENDER POLICIES</u></h3>
+        
+        
+        There is a total of **89** surrendered policies between 1st September and as at 6th October 2023.
+        
+        *Below is the composition of the policies*
+        
+        | Month     |  Number of Policies |
+        |:----------|--------:|
+        | November  |      22 |
+        |October   |      28 |
+        | September |      39 |
+        | **TOTAL** | **89** |
+        
+        <br>
+        
+        <br>
+        
+        <h2>PAID CLAMS</h2>
+        
+        From the month of April there has been a total payment of **Ksh. 39,415,513**.
+        
+        *The graph below illustrates the monthly payments made*
+        <div>
+            <iframe src="payments.html" height="500" width="900"></iframe>
+        </div>
+        
+        
+        <br>
+        
+        <br>
+        
+        
+        <h2>ANTICIPATED MATURITIES</h2>
+        
+        What are we anticipating for 2024... ?
+        
+        <div>
+            <iframe src="count3.html" height="450" width="530" style="display:inline-block; margin-right:5px;font-size: 8px;"></iframe>
+            <iframe src="payables3.html" height="450" width="530" style="display:inline-block;font-size: 12px;"></iframe>
+        </div>
+        
+        
+        <h1>KEY TAKEAWAYS</h1>
+        
+        1. The company does an average monthly payment of **4,926,939** roughly 5M. 
+        2. The anticipated maturity amounts payable in 2024 per month are way above what the company currently pays every month.
+        3. The company has a large outstanding amount on claims that have been launched but are yet to be paid. This stands at around **170M.**
+        
+        <br>
+        
+        <br>
+        
+        <br>
+        
+        
+        
+        </div>
 
-
-
+        
     elif view == 'Payments':
 
         st.subheader("LIFE PAYMENTS")
