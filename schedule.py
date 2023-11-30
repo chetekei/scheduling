@@ -301,6 +301,39 @@ if check_password():
         </div>
         </html>
         """
+
+        # Read data from the Google Sheets worksheet
+        data = worksheet.get_all_values()
+        headers = data[0]
+        data = data[1:]
+
+        df = pd.DataFrame(data, columns = headers)
+
+        category_sum_amounts = df.groupby('Month Paid')['Amount'].sum()
+
+        # Convert Series to DataFrame
+        category_sum_amounts_df = category_sum_amounts.reset_index(name='Total Amount')
+        
+        
+            
+        # Create a bar chart for Category vs. Sum of Amounts using Plotly
+        fig = go.Figure(data=[go.Bar(
+        x=category_sum_amounts.index,
+        y=category_sum_amounts       
+        )])
+        
+        fig.update_layout(title={'text': 'AMOUNTS PAID PER MONTH', 'x': 0.5, 'xanchor': 'center'}, 
+                                  xaxis_title='Month Paid',
+                                  yaxis_title='Amount Paid',
+                                  xaxis=dict(tickfont=dict(size=10)),                                  
+                                  )
+        
+        # Set the color for bars
+        bar_color = '#FF69B4'
+        for trace in fig.data:
+            trace.marker.color = bar_color
+            
+        fig
         
         st.markdown(html_code, unsafe_allow_html=True)
 
