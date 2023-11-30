@@ -1,3 +1,2 @@
 gspread
 plotly.express
-AgGrid
