@@ -71,7 +71,7 @@ if check_password():
     st.sidebar.subheader("Search Clients Details")  # User input for plan selection
 
     # Create a sidebar to switch between views
-    view = st.sidebar.radio("View", ["Registry", "Scheduling", "Payments", "Calculate Surrender", "Expected Maturity"])
+    view = st.sidebar.radio("View", ["Registry", "Scheduling", "Payments", "Calculate Surrender", "Expected Maturity", "Report"])
 
     if view == "Calculate Surrender":
 
@@ -172,6 +172,94 @@ if check_password():
                     
             else:
                 st.write("Invalid plan selection. Please enter a valid plan number.")
+
+
+    elif view == "Report":
+        html_code = """
+        <!DOCTYPE html>
+        <html>
+        <style>
+            .container {
+                display: flex;
+                justify-content: center;
+            }
+        
+            .text {
+                font-size: 20px;
+                margin: 30px;
+            }
+        
+            .flex-container {
+                display: flex;
+                justify-content: center;
+            }
+        
+            .flex-container img {
+                margin: 0 10px; /* Adjust the margin as needed */
+            }
+        </style>
+        
+        <div class="container">
+            <div class="flex-container">
+                <img src="https://viva-365.com/wp-content/uploads/2021/01/Corporate-Insurance.png" alt="Image Description">
+            </div>
+        
+            <div class="text">
+        
+                **RUNNING POLICIES**
+        
+                There is a total of **2759** running policies as at 30th November 2023.
+        
+                *Below is the composition of the policy register*
+        
+                | Status   |   Number of Policies |
+                |:---------|--------:|
+                | IN FORCE |     641 |
+                | PAID UP  |    2118 |
+                | **TOTAL**| **2759** |
+        
+                <br>
+        
+                **SURRENDER POLICIES**
+        
+                There is a total of **89** surrendered policies between 1st September and as at 6th October 2023.
+        
+                *Below is the composition of the policies*
+        
+                | Month     |  Number of Policies |
+                |:----------|--------:|
+                | November  |      22 |
+                | October   |      28 |
+                | September |      39 |
+                | **TOTAL** | **89** |
+        
+                <br>
+        
+                <br>
+        
+                **PAID CLAIMS**
+        
+                <img src="payments.png" alt="Paid Claims Image Description">
+        
+                <br>
+        
+                <br>
+        
+                **ANTICIPATED MATURITIES**<br>
+                What are we anticipating for 2024... ?
+        
+                <div class="flex-container">
+                    <img src="COUNT3.png" alt="Paid Claims Image Description">
+                    <img src="AMOUNT3.png" alt="Paid Claims Image Description">
+                </div>
+        
+            </div>
+        </div>
+        </html>
+        """
+        
+        st.markdown(html_code, unsafe_allow_html=True)
+
 
 
     elif view == 'Payments':
