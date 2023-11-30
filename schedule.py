@@ -297,10 +297,12 @@ if check_password():
         <br>
         
         <br>
-        
-        
-        
+    
         </div>
+        </html>
+        """
+        
+        st.markdown(html_code, unsafe_allow_html=True)
 
         
     elif view == 'Payments':
