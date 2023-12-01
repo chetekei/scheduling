@@ -1,5 +1,4 @@
 import streamlit as st
-from st_aggrid import AgGrid
 import pandas as pd
 import plotly as px
 import plotly.graph_objects as go
@@ -204,7 +203,7 @@ if check_password():
 
       
         
-        AgGrid(filtered_df)
+        editable_df(filtered_df)
         
 
         filtered_df['Amount'] = pd.to_numeric(filtered_df['Amount'], errors='coerce')
