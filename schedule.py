@@ -63,7 +63,7 @@ if check_password():
 
 
     # Configuration
-    st.set_option('deprecation.showfileUploaderEncoding', False)
+    #st.set_option('deprecation.showfileUploaderEncoding', False)
     st.set_page_config(page_icon="corplogo.PNG")
 
     # Add a sidebar
