@@ -200,8 +200,7 @@ if check_password():
             filtered_df = df
 
       
-        
-        editable_df(filtered_df)
+        edited_df = st.data_editor(filtered_df, num_rows="dynamic")
         
 
         filtered_df['Amount'] = pd.to_numeric(filtered_df['Amount'], errors='coerce')
