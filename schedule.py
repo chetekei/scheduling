@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import plotly.graph_objects as go
 import calendar
 import gspread
 from google.oauth2 import service_account
