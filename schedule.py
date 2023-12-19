@@ -7,7 +7,7 @@ import base64
 import datetime
 
 
-st.set_page_config(page_title='LIFE DEPARTMENT', layout="wide")
+st.set_page_config(page_title='LIFE DEPARTMENT', page_icon="corplogo.PNG", layout="wide")
 
 st.markdown("""
     <style>
@@ -78,7 +78,7 @@ if check_password():
 
     # Configuration
     #st.set_option('deprecation.showfileUploaderEncoding', False)
-    st.set_page_config(page_icon="corplogo.PNG")
+  
 
     # Add a sidebar
     st.sidebar.image('corplogo.PNG', use_column_width=True)
