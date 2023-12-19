@@ -7,6 +7,8 @@ import base64
 import datetime
 
 
+st.set_page_config(page_title='LIFE DEPARTMENT', layout="wide")
+
 st.markdown("""
     <style>
         .reportview-container {
@@ -18,7 +20,6 @@ st.markdown("""
         #stDecoration {display:none;}
     </style>
 """, unsafe_allow_html=True)
-
 
 def check_password():
     """Returns `True` if the user had a correct password."""
