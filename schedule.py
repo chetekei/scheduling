@@ -182,10 +182,12 @@ if check_password():
 
 
                     else:
-                        st.write(adjusted_value)
+                        #st.write(adjusted_value)
+                        st.image('jbnp.jpeg')
                     
             else:
-                st.write("Invalid plan selection. Please enter a valid plan number.")
+                #st.write("Invalid plan selection. Please enter a valid plan number.")
+                st.image('jbnp.jpeg')
 
         
     elif view == 'Payments':
@@ -207,11 +209,13 @@ if check_password():
         selected = st.selectbox("Filter by Month Payment Done:", ["All Payments"] + list(unique_month))
 
         if selected != "All Payments":
+            st.image('jbnp.jpeg')
             # Filter the DataFrame based on the selected month
-            filtered_df = df[df['Month Paid'] == selected]
+            #filtered_df = df[df['Month Paid'] == selected]
         else:
             # If "All Payments" is selected, show the entire DataFrame
-            filtered_df = df
+            #filtered_df = df
+            st.image('jbnp.jpeg')
 
       
         edited_df = st.data_editor(filtered_df, num_rows="dynamic")
@@ -289,6 +293,7 @@ if check_password():
         
             if policy_results.empty:
                 st.write("File Not Available")
+                
             else:
             
             
@@ -299,8 +304,10 @@ if check_password():
                 # styled = policy_results[[ 'Insured ', 'Policy Number', 'Batch']]
 
                 # AgGrid(styled)
+
+                st.image('jbnp.jpeg')
                 
-                st.table(styled_results)
+                #st.table(styled_results)
                 
         if search_name:
             name_results = registry[registry['Insured '].str.contains(search_name, case=False)]
@@ -318,7 +325,8 @@ if check_password():
                                         'props': [('background-color', '#f19cbb'),
                                                 ('font-weight', 'bold')]}])
                 
-                st.table(styled_results)
+                #st.table(styled_results)
+                st.image('jbnp.jpeg')
         
 
     elif view == "Scheduling":
@@ -363,7 +371,8 @@ if check_password():
                                         'props': [('background-color', '#f19cbb'),
                                                 ('font-weight', 'bold')]}])
 
-                st.table(styled_results)
+                #st.table(styled_results)
+                st.image('jbnp.jpeg')
 
         if search_name:
             name_results = df2[df2['Insured'].str.contains(search_name, case=False)]
@@ -389,7 +398,8 @@ if check_password():
                                         'props': [('background-color', '#f19cbb'),
                                                 ('font-weight', 'bold')]}])
 
-                st.table(styled_results)
+                #st.table(styled_results)
+                st.image('jbnp.jpeg')
 
         # Add a section to download policies scheduled for the respective week in the sidebar
         st.sidebar.markdown("---")
@@ -422,7 +432,8 @@ if check_password():
             formatted_total_claim_amount = '{:,.0f}'.format(total_claim_amount)
             st.write(f" **Total Scheduled Claim Amount this Week:** {formatted_total_claim_amount}")
             
-            st.dataframe(policies_selected_columns)
+            #st.dataframe(policies_selected_columns)
+            st.image('jbnp.jpeg')
 
             
 
