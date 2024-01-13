@@ -118,7 +118,7 @@ if check_password():
 
                 # "Calculate" button
                 if st.button("Calculate"):
-                    st.image('jbnp.jpeg')
+                    st.image('jbnp.png')
                     # Function to retrieve the adjusted value at the intersection of a selected column and TERM
                     # def get_adjusted_value(data_frame, units_paid, policy_term, sum_assured):
                     #     try:
@@ -143,7 +143,7 @@ if check_password():
                         column_name = str(units_paid)
                         value = df.at[row_index, column_name]
                         formatted_value = (value/1000)                  
-                        st.image('jbnp.jpeg')
+                        st.image('jbnp.png')
                     
                         #st.write(f"The Surrender Value is: <br> (*{formatted_value}*)  *  {sum_assured:,} <br> =  **{adjusted_value:,.0f}**" , unsafe_allow_html=True)
 
@@ -184,11 +184,11 @@ if check_password():
 
                     else:
                         #st.write(adjusted_value)
-                        st.image('jbnp.jpeg')
+                        st.image('jbnp.png')
                     
             else:
                 #st.write("Invalid plan selection. Please enter a valid plan number.")
-                st.image('jbnp.jpeg')
+                st.image('jbnp.png')
 
         
     elif view == 'Payments':
@@ -216,7 +216,7 @@ if check_password():
         else:
             # If "All Payments" is selected, show the entire DataFrame
             #filtered_df = df
-            st.image('jbnp.jpeg')
+            st.image('jbnp.png')
 
       
         edited_df = st.data_editor(filtered_df, num_rows="dynamic")
@@ -266,8 +266,10 @@ if check_password():
                 filtered_df = filtered_df[filtered_df['Month Name'] == selected_month]
             
             # Display the filtered DataFrame
-            st.write("Filtered DataFrame:")
-            st.write(filtered_df)
+            #st.write("Filtered DataFrame:")
+            #st.write(filtered_df)
+            st.image('jbnp.png')
+        
 
              # Add a button to download the filtered data as a CSV
             if st.button("Download CSV"):
@@ -306,7 +308,7 @@ if check_password():
 
                 # AgGrid(styled)
 
-                st.image('jbnp.jpeg')
+                st.image('jbnp.png')
                 
                 #st.table(styled_results)
                 
@@ -327,7 +329,7 @@ if check_password():
                                                 ('font-weight', 'bold')]}])
                 
                 #st.table(styled_results)
-                st.image('jbnp.jpeg')
+                st.image('jbnp.png')
         
 
     elif view == "Scheduling":
@@ -373,7 +375,7 @@ if check_password():
                                                 ('font-weight', 'bold')]}])
 
                 #st.table(styled_results)
-                st.image('jbnp.jpeg')
+                st.image('jbnp.png')
 
         if search_name:
             name_results = df2[df2['Insured'].str.contains(search_name, case=False)]
@@ -434,7 +436,7 @@ if check_password():
             st.write(f" **Total Scheduled Claim Amount this Week:** {formatted_total_claim_amount}")
             
             #st.dataframe(policies_selected_columns)
-            st.image('jbnp.jpeg')
+            st.image('jbnp.png')
 
             
 
