@@ -402,7 +402,7 @@ if check_password():
                                                 ('font-weight', 'bold')]}])
 
                 #st.table(styled_results)
-                st.image('jbnp.jpeg')
+                st.image('jbnp.png')
 
         # Add a section to download policies scheduled for the respective week in the sidebar
         st.sidebar.markdown("---")
