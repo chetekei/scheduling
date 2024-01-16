@@ -180,11 +180,11 @@ if check_password():
 
 
                     else:
-                        #st.write(adjusted_value)
+                        st.write(adjusted_value)
                       
                     
             else:
-                #st.write("Invalid plan selection. Please enter a valid plan number.")
+                st.write("Invalid plan selection. Please enter a valid plan number.")
            
 
         
