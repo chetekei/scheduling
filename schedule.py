@@ -209,12 +209,11 @@ if check_password():
         if selected != "All Payments":
             st.image('jbnp.jpeg')
             # Filter the DataFrame based on the selected month
-            #filtered_df = df[df['Month Paid'] == selected]
+            filtered_df = df[df['Month Paid'] == selected]
         else:
             # If "All Payments" is selected, show the entire DataFrame
-            #filtered_df = df
-       
-
+            filtered_df = df
+    
       
         edited_df = st.data_editor(filtered_df, num_rows="dynamic")
         
