@@ -119,7 +119,7 @@ if check_password():
                 # "Calculate" button
                 if st.button("Calculate"):
                    
-                    Function to retrieve the adjusted value at the intersection of a selected column and TERM
+                    # Function to retrieve the adjusted value at the intersection of a selected column and TERM
                     def get_adjusted_value(data_frame, units_paid, policy_term, sum_assured):
                         try:
                             row_index = data_frame[data_frame['TERM'] == policy_term].index[0]
