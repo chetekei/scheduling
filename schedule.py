@@ -132,10 +132,7 @@ if check_password():
                         except (KeyError, IndexError):
                             return "Invalid column name or TERM value."
 
-                
-
-                    Calculate the adjusted value if all user inputs are provided
-                    Calculate the adjusted value if all user inputs are provided
+            
                     adjusted_value = get_adjusted_value(df, units_paid, policy_term, sum_assured)
                     
                     if isinstance(adjusted_value, (int, float)):
