@@ -207,7 +207,7 @@ if check_password():
         selected = st.selectbox("Filter by Month Payment Done:", ["All Payments"] + list(unique_month))
 
         if selected != "All Payments":
-            st.image('jbnp.jpeg')
+            
             # Filter the DataFrame based on the selected month
             filtered_df = df[df['Month Paid'] == selected]
         else:
