@@ -288,7 +288,7 @@ if check_password():
         registry['Policy Number'] = registry['Policy Number'].astype(str)
         
         if search_policy:
-            policy_results = registry[registry['Policy Number'].str.contains(search_policy, case=False)]
+            policy_results = registry.loc[registry['Policy Number'].str.contains(search_policy, case=False)]
         
             if policy_results.empty:
                 st.write("File Not Available")
@@ -304,7 +304,7 @@ if check_password():
                 
                 
         if search_name:
-            name_results = registry[registry['Insured '].str.contains(search_name, case=False)]
+            name_results = registry.loc[registry['Insured '].str.contains(search_name, case=False)]
         
             if name_results.empty:
                 st.write("File Not Available")
@@ -344,7 +344,7 @@ if check_password():
         df2['Policy Number'] = df2['Policy Number'].astype(str)
 
         if search_policy:
-            policy_results = df2[df2['Policy Number'].str.contains(search_policy, case=False)]
+            policy_results = df2.loc[df2['Policy Number'].str.contains(search_policy, case=False)]
 
             if policy_results.empty:
                 st.write("Data Not Available")
@@ -369,7 +369,7 @@ if check_password():
                
 
         if search_name:
-            name_results = df2[df2['Insured'].str.contains(search_name, case=False)]
+            name_results = df2.loc[df2['Insured'].str.contains(search_name, case=False)]
 
             if name_results.empty:
                 st.write("Data Not Available")
