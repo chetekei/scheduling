@@ -293,20 +293,15 @@ if check_password():
             if policy_results.empty:
                 st.write("File Not Available")
                 
-            else:
-            
+            else:           
             
                 styled_results = policy_results[['Insured ', 'Policy Number', 'Batch']].style\
                     .set_table_styles([{'selector': 'th',
                                         'props': [('background-color', '#f19cbb'),
                                                 ('font-weight', 'bold')]}])
-                # styled = policy_results[[ 'Insured ', 'Policy Number', 'Batch']]
-
-                # AgGrid(styled)
-
-               
                 
                 st.table(styled_results)
+                
                 
         if search_name:
             name_results = registry[registry['Insured '].str.contains(search_name, case=False)]
@@ -370,7 +365,7 @@ if check_password():
                                         'props': [('background-color', '#f19cbb'),
                                                 ('font-weight', 'bold')]}])
 
-                #st.table(styled_results)
+                st.table(styled_results)
                
 
         if search_name:
@@ -397,7 +392,7 @@ if check_password():
                                         'props': [('background-color', '#f19cbb'),
                                                 ('font-weight', 'bold')]}])
 
-                #st.table(styled_results)
+                st.table(styled_results)
                
 
         # Add a section to download policies scheduled for the respective week in the sidebar
