@@ -306,7 +306,7 @@ if check_password():
 
                
                 
-                #st.table(styled_results)
+                st.table(styled_results)
                 
         if search_name:
             name_results = registry[registry['Insured '].str.contains(search_name, case=False)]
@@ -324,7 +324,7 @@ if check_password():
                                         'props': [('background-color', '#f19cbb'),
                                                 ('font-weight', 'bold')]}])
                 
-                #st.table(styled_results)
+                st.table(styled_results)
                
         
 
